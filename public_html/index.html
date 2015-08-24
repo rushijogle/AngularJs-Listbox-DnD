@@ -35,11 +35,14 @@ and open the template in the editor.
                     {'title': 'Item 7'},
                     {'title': 'Item 8'}
                 ];
-                $scope.toggle = function(item){
-                   // alert(test)
+                $scope.toggle = function (item) {
                     $scope.list2.push(item);
+                    var i = $scope.list1.indexOf(item);
+                    if (i != -1) {
+                        $scope.list1.splice(i, 1);
+                    }
                 }
-                
+
 
             });
 
@@ -72,7 +75,7 @@ and open the template in the editor.
                     <div class="panel-heading"><h4>List 2</h4></div>
                     <div class="panel-body">
                         <ul class="list-group">
-                           <li class="list-group-item" ng-repeat="item in list2" >{{item.title}}</li>
+                            <li class="list-group-item" ng-repeat="item in list2" >{{item.title}}</li>
                         </ul>
                     </div>
                 </div>
